@@ -48,8 +48,9 @@ namespace ClientProject
             {
                 if (connectionStream == null)
                 {
+                    Console.WriteLine("Disconnected, please reconnect to server.");
                     connected = false;
-                    Console.WriteLine("Disconnected, please reconnect to server."); 
+                    break; 
                 }
                 buffer = new byte[128];
                 try
