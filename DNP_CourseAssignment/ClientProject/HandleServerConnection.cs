@@ -10,12 +10,17 @@ namespace ClientProject
 {
     class HandleServerConnection
     {
-        private String messageFromClient;
+        private string messageFromClient;
         private NetworkStream connectionStream;
+        private bool connected; 
 
         public HandleServerConnection(NetworkStream clientStream)
         {
-            this.connectionStream = clientStream;
+            connectionStream = clientStream;
+            if (clientStream != null)
+            {
+                connected = true; 
+            }
         }
 
         public void SendMessage(string message)
@@ -28,14 +33,18 @@ namespace ClientProject
             {
                 Console.WriteLine("Please connect to the chat server."); 
             }
-
         }
 
         public void ReceiveMessages()
         {
             byte[] buffer = new byte[128];
-            while (true)
+            while (connected)
             {
+                if (connectionStream == null)
+                {
+                    connected = false;
+                    Console.WriteLine("Disconnected, please reconnect to server."); 
+                }
                 buffer = new byte[128];
                 try
                 {
