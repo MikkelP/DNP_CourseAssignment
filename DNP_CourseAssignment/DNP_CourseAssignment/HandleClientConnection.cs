@@ -14,13 +14,22 @@ namespace DNP_CourseAssignment
         private NetworkStream clientStream;
         private ListBox logList;
         private String userId;
+        private ServerConnection srvCon;
 
-        public HandleClientConnection(NetworkStream clientStream, ListBox log, String user)
+        public HandleClientConnection(NetworkStream clientStream, ListBox log, String user,ServerConnection srv)
         {
             this.clientStream = clientStream;
             logList = log;
             userId = user;
+            srvCon = srv;
         }
+
+        public void SendMessageToClient(string msg)
+        {
+            byte[] messageToClient = Encoding.ASCII.GetBytes(msg);
+            clientStream.Write(messageToClient, 0, messageToClient.Length);
+        }
+
 
         public void ReceiveMessagesFromClient()
         {
@@ -36,6 +45,7 @@ namespace DNP_CourseAssignment
                         clientStream.Read(buffer, 0, 128);
                         messageFromClient = Encoding.ASCII.GetString(buffer);
                         Console.WriteLine(messageFromClient);
+                        srvCon.BroadCast(messageFromClient);
                         this.logList.BeginInvoke((MethodInvoker)delegate ()
                         {
                             logList.Items.Add("From: " + userId + " --- " + messageFromClient);

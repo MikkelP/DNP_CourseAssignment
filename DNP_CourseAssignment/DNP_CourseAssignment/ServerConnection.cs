@@ -14,7 +14,7 @@ namespace DNP_CourseAssignment
     {
         private bool isStarted = false;
         private TcpListener listener;
-        private List<TcpClient> users;
+        private List<User> users;
         private ListBox listBox;
         private ListBox listLog;
 
@@ -24,7 +24,7 @@ namespace DNP_CourseAssignment
             //IPAddress ip = new IPAddress(address);
             listBox = box;
             listLog = log;
-            users = new List<TcpClient>();
+            users = new List<User>();
             listener = new TcpListener(IPAddress.Any, 11000);   
         }
 
@@ -44,6 +44,17 @@ namespace DNP_CourseAssignment
             isStarted = false;
         }
 
+        public void BroadCast(string msg)
+        {
+            Console.WriteLine("Sending message....");
+            foreach (User user in users)
+            {
+                user.handleClient.SendMessageToClient(msg);
+            }
+
+        }
+
+
         public void ListenForConnections ()
         {
             Console.WriteLine("Server started. Listening for connections...");
@@ -51,7 +62,7 @@ namespace DNP_CourseAssignment
             {
                 TcpClient client = listener.AcceptTcpClient();
                 NetworkStream ns = client.GetStream();
-                users.Add(client);
+                
                 this.listBox.BeginInvoke((MethodInvoker)delegate() 
                 {
                     listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
@@ -64,7 +75,8 @@ namespace DNP_CourseAssignment
                 byte[] data = Encoding.ASCII.GetBytes(welcome);
                 ns.Write(data, 0, data.Length);
 
-                HandleClientConnection hc = new HandleClientConnection(ns,listLog, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                HandleClientConnection hc = new HandleClientConnection(ns,listLog, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),this);
+                users.Add(new User(client,hc, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()));
                 Thread handleConnection = new Thread(new ThreadStart(hc.ReceiveMessagesFromClient));
                 handleConnection.Start();
 
