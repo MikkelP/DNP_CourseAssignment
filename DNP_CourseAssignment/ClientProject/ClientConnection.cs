@@ -33,7 +33,7 @@ namespace ClientProject
                 }
                 Thread.Sleep(10000); 
             }
-
+//....
             NetworkStream serverStream = c.GetStream();
             hc = new HandleServerConnection(serverStream);
 
