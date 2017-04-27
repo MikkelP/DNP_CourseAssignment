@@ -17,7 +17,7 @@ namespace DNP_CourseAssignment
         private List<TcpClient> users;
         private ListBox listBox;
 
-        public ServerConnection (ListBox box)
+        public ServerConnection (ListBox box , ListBox log)
         {
             //[] address = { 127, 0, 0, 1 };
             //IPAddress ip = new IPAddress(address);
@@ -48,10 +48,13 @@ namespace DNP_CourseAssignment
             while (isStarted)
             {
                 TcpClient client = listener.AcceptTcpClient();
-
                 NetworkStream ns = client.GetStream();
                 users.Add(client);
-                listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                this.listBox.BeginInvoke((MethodInvoker)delegate() 
+                {
+                    listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                });
+
                 Console.WriteLine(users.Count);
                 Console.WriteLine("Connected to client: " + ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
 
