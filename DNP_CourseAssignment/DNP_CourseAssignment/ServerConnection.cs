@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace DNP_CourseAssignment
 {
@@ -13,10 +14,15 @@ namespace DNP_CourseAssignment
     {
         private bool isStarted = false;
         private TcpListener listener;
-        public ServerConnection ()
+        private List<TcpClient> users;
+        private ListBox listBox;
+
+        public ServerConnection (ListBox box)
         {
             //[] address = { 127, 0, 0, 1 };
             //IPAddress ip = new IPAddress(address);
+            listBox = box;
+            users = new List<TcpClient>();
             listener = new TcpListener(IPAddress.Any, 11000);   
         }
 
@@ -42,8 +48,11 @@ namespace DNP_CourseAssignment
             while (isStarted)
             {
                 TcpClient client = listener.AcceptTcpClient();
-                NetworkStream ns = client.GetStream();
 
+                NetworkStream ns = client.GetStream();
+                users.Add(client);
+                listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                Console.WriteLine(users.Count);
                 Console.WriteLine("Connected to client: " + ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
 
                 string welcome = "Welcome to the DNPI1 test server";
