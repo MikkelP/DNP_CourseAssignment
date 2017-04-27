@@ -1,0 +1,8 @@
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Properties.Resources.resources
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csproj.GenerateResource.Cache
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe.config
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.pdb
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.exe
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.pdb

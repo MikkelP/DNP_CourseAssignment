@@ -1,0 +1,8 @@
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.exe.config
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.exe
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.pdb
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.Server.resources
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.Properties.Resources.resources
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\ServerProject.csproj.GenerateResource.Cache
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.exe
+C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.pdb
