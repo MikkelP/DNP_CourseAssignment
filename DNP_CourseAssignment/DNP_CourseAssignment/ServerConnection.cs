@@ -16,12 +16,14 @@ namespace DNP_CourseAssignment
         private TcpListener listener;
         private List<TcpClient> users;
         private ListBox listBox;
+        private ListBox listLog;
 
         public ServerConnection (ListBox box , ListBox log)
         {
             //[] address = { 127, 0, 0, 1 };
             //IPAddress ip = new IPAddress(address);
             listBox = box;
+            listLog = log;
             users = new List<TcpClient>();
             listener = new TcpListener(IPAddress.Any, 11000);   
         }
@@ -62,7 +64,7 @@ namespace DNP_CourseAssignment
                 byte[] data = Encoding.ASCII.GetBytes(welcome);
                 ns.Write(data, 0, data.Length);
 
-                HandleClientConnection hc = new HandleClientConnection(ns);
+                HandleClientConnection hc = new HandleClientConnection(ns,listLog, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
                 Thread handleConnection = new Thread(new ThreadStart(hc.ReceiveMessagesFromClient));
                 handleConnection.Start();
 
