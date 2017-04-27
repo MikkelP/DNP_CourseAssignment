@@ -14,8 +14,10 @@ namespace ClientProject
 
         public ClientConnection ()
         {
+            Console.WriteLine("Trying to connect");
             TcpClient c = new TcpClient("10.52.224.122", 11000);
 
+            Console.WriteLine("Trying to connect");
             NetworkStream serverStream = c.GetStream();
             hc = new HandleServerConnection(serverStream);
 
