@@ -60,8 +60,8 @@ namespace ClientProject
 
                         connectionStream.Read(buffer, 0, buffer.Length);
                         messageFromClient = Encoding.ASCII.GetString(buffer);
-                        Console.WriteLine(messageFromClient);
-                        this.chatBox.BeginInvoke((MethodInvoker)delegate ()
+                        
+                        chatBox.BeginInvoke((MethodInvoker)delegate ()
                         {
                             chatBox.Items.Add(messageFromClient);
                         });

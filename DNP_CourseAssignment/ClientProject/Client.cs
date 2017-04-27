@@ -33,5 +33,15 @@ namespace ClientProject
             if (client != null) return;
            client = new ClientConnection(chatBox);
         }
+
+        public ListBox GetMsgList()
+        {
+            return chatBox; 
+        }
+
+        public ListBox GetUserList()
+        {
+            return listBox2; 
+        }
     }
 }
