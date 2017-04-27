@@ -36,7 +36,7 @@ namespace DNP_CourseAssignment
                         clientStream.Read(buffer, 0, 128);
                         messageFromClient = Encoding.ASCII.GetString(buffer);
                         Console.WriteLine(messageFromClient);
-                        this.logList.BeginInvoke((MethodInvoker)delegate ()
+                        logList.BeginInvoke((MethodInvoker)delegate ()
                         {
                             logList.Items.Add("From: " + userId + " --- " + messageFromClient);
                         });
