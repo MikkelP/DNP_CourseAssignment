@@ -30,8 +30,8 @@ namespace ClientProject
                 } catch (SocketException e)
                 {
                     Console.WriteLine("Failed to connect, reconnecting in 10 seconds..."); 
+                    Thread.Sleep(10000); 
                 }
-                Thread.Sleep(10000); 
             }
 //....
             NetworkStream serverStream = c.GetStream();
