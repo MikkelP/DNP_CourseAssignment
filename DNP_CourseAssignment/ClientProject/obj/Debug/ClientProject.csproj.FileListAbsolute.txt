@@ -6,3 +6,12 @@ C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\Client
 C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
 C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.exe
 C:\Users\mikke\Documents\Visual Studio 2015\Projects\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.pdb
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe.config
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.pdb
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csprojResolveAssemblyReference.cache
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Properties.Resources.resources
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csproj.GenerateResource.Cache
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.exe
+D:\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.pdb

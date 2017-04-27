@@ -15,9 +15,9 @@ namespace DNP_CourseAssignment
         private TcpListener listener;
         public ServerConnection ()
         {
-            byte[] address = { 127, 0, 0, 1 };
-            IPAddress ip = new IPAddress(address);
-            listener = new TcpListener(ip, 12345);   
+            //[] address = { 127, 0, 0, 1 };
+            //IPAddress ip = new IPAddress(address);
+            listener = new TcpListener(IPAddress.Any, 11000);   
         }
 
         public void Start ()
