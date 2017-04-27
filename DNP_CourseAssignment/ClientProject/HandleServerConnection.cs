@@ -17,6 +17,13 @@ namespace ClientProject
             this.connectionStream = clientStream;
         }
 
+        public void SendMessage(string message)
+        {
+            byte[] dataToSend = Encoding.ASCII.GetBytes(message);
+            connectionStream.Write(dataToSend, 0, dataToSend.Length);
+
+        }
+
         public void ReceiveMessages()
         {
             byte[] buffer = new byte[128];

@@ -12,6 +12,7 @@ namespace ClientProject
 {
     public partial class Client : Form
     {
+        ClientConnection client;
         public Client()
         {
             InitializeComponent();
@@ -19,12 +20,18 @@ namespace ClientProject
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-
+            if (client == null) return;
+            //Get text
+            String input = chatText.Text;
+            client.hc.SendMessage(chatText.Text);
+            chatText.Text = "";
+            chatBox.Items.Add(input);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClientConnection client = new ClientConnection();
+            if (client == null) return;
+           client = new ClientConnection();
         }
     }
 }

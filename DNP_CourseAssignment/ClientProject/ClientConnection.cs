@@ -10,12 +10,14 @@ namespace ClientProject
 {
     class ClientConnection
     {
+        public HandleServerConnection hc;
+
         public ClientConnection ()
         {
             TcpClient c = new TcpClient("10.52.224.122", 11000);
 
             NetworkStream serverStream = c.GetStream();
-            HandleServerConnection hc = new HandleServerConnection(serverStream);
+            hc = new HandleServerConnection(serverStream);
 
             //Receiving messages
             Thread connection = new Thread(new ThreadStart(hc.ReceiveMessages));
