@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -20,7 +21,13 @@ namespace ClientProject
         public void SendMessage(string message)
         {
             byte[] dataToSend = Encoding.ASCII.GetBytes(message);
-            connectionStream.Write(dataToSend, 0, dataToSend.Length);
+            try
+            {
+                connectionStream.Write(dataToSend, 0, dataToSend.Length);
+            } catch (IOException e)
+            {
+                Console.WriteLine("Please connect to the chat server."); 
+            }
 
         }
 
@@ -44,6 +51,7 @@ namespace ClientProject
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
+                    Console.WriteLine("Disconnected"); 
                     break;
                 }
             }

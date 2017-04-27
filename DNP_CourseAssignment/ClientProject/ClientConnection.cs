@@ -29,9 +29,9 @@ namespace ClientProject
                     c = new TcpClient("10.52.224.122", 11000);
                 } catch (SocketException e)
                 {
-                    Console.WriteLine("Failed to connect, reconnecting in 10 seconds..."); 
+                    Console.WriteLine("Failed to connect, reconnecting in 10 seconds...");
+                    Thread.Sleep(10000);
                 }
-                Thread.Sleep(10000); 
             }
 //....
             NetworkStream serverStream = c.GetStream();
