@@ -14,7 +14,25 @@ namespace ClientProject
 
         public ClientConnection ()
         {
-            TcpClient c = new TcpClient("10.52.224.122", 11000);
+            Thread t = new Thread(new ThreadStart(TryConnect));
+            t.Start(); 
+        }
+
+        public void TryConnect()
+        {
+            TcpClient c = null;
+
+            while (c == null)
+            {
+                try
+                {
+                    c = new TcpClient("10.52.224.122", 11000);
+                } catch (SocketException e)
+                {
+                    Console.WriteLine("Failed to connect, reconnecting in 10 seconds..."); 
+                }
+                Thread.Sleep(10000); 
+            }
 
             NetworkStream serverStream = c.GetStream();
             hc = new HandleServerConnection(serverStream);

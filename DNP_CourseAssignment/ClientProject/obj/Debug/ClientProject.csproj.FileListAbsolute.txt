@@ -24,3 +24,12 @@ C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\Client
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Properties.Resources.resources
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csproj.GenerateResource.Cache
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe.config
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.exe
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.pdb
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.exe
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ClientProject.pdb
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Properties.Resources.resources
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csproj.GenerateResource.Cache
