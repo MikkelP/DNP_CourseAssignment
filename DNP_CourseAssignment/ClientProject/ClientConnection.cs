@@ -29,7 +29,7 @@ namespace ClientProject
             {
                 try
                 {
-                    c = new TcpClient("10.52.227.70", 11000);
+                    c = new TcpClient("10.52.224.122", 11000);
                 } catch (SocketException e)
                 {
                     Console.WriteLine("Failed to connect, reconnecting in 10 seconds...");
