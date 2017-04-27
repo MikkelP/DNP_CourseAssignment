@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -10,28 +11,46 @@ namespace ClientProject
 {
     class HandleServerConnection
     {
+
         private ListBox chatBox;
         private String messageFromClient;
+
         private NetworkStream connectionStream;
+        private bool connected; 
 
         public HandleServerConnection(NetworkStream clientStream, ListBox _chatBox)
         {
-            this.connectionStream = clientStream;
+
             chatBox = _chatBox;
+            connectionStream = clientStream;
+            if (clientStream != null)
+            {
+                connected = true; 
+            }
         }
 
         public void SendMessage(string message)
         {
             byte[] dataToSend = Encoding.ASCII.GetBytes(message);
-            connectionStream.Write(dataToSend, 0, dataToSend.Length);
-
+            try
+            {
+                connectionStream.Write(dataToSend, 0, dataToSend.Length);
+            } catch (IOException e)
+            {
+                Console.WriteLine("Please connect to the chat server."); 
+            }
         }
 
         public void ReceiveMessages()
         {
             byte[] buffer = new byte[128];
-            while (true)
+            while (connected)
             {
+                if (connectionStream == null)
+                {
+                    connected = false;
+                    Console.WriteLine("Disconnected, please reconnect to server."); 
+                }
                 buffer = new byte[128];
                 try
                 {
@@ -50,6 +69,7 @@ namespace ClientProject
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
+                    Console.WriteLine("Disconnected"); 
                     break;
                 }
             }
