@@ -4,17 +4,20 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ClientProject
 {
     class HandleServerConnection
     {
+        private ListBox chatBox;
         private String messageFromClient;
         private NetworkStream connectionStream;
 
-        public HandleServerConnection(NetworkStream clientStream)
+        public HandleServerConnection(NetworkStream clientStream, ListBox _chatBox)
         {
             this.connectionStream = clientStream;
+            chatBox = _chatBox;
         }
 
         public void SendMessage(string message)
@@ -38,7 +41,10 @@ namespace ClientProject
                         connectionStream.Read(buffer, 0, buffer.Length);
                         messageFromClient = Encoding.ASCII.GetString(buffer);
                         Console.WriteLine(messageFromClient);
-
+                        this.chatBox.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            chatBox.Items.Add(messageFromClient);
+                        });
                     }
                 }
                 catch (Exception e)
