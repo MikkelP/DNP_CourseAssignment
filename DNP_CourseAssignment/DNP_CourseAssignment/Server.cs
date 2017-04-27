@@ -17,7 +17,7 @@ namespace DNP_CourseAssignment
         public Server()
         {
             InitializeComponent();
-            connection = new ServerConnection(listBox2);
+            connection = new ServerConnection(listBox2 , listBox1);
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -28,6 +28,7 @@ namespace DNP_CourseAssignment
         private void stopButton_Click(object sender, EventArgs e)
         {
             connection.Stop();
+            
         }
     }
 }
