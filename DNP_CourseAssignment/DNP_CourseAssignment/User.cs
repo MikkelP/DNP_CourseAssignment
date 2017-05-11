@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 namespace DNP_CourseAssignment
-{
+{//
     class User
     {
         public TcpClient client { get; }
