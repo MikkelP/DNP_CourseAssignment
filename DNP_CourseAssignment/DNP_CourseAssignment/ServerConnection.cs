@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,10 +8,11 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Soap;
 
 namespace DNP_CourseAssignment
 {
-    class ServerConnection
+    public class ServerConnection
     {
         private bool isStarted = false;
         private TcpListener listener;
@@ -44,14 +46,46 @@ namespace DNP_CourseAssignment
             isStarted = false;
         }
 
-        public void BroadCast(string msg)
+        public void Broadcast(string info, int type, string username, string channelName)
         {
-            Console.WriteLine("Sending message....");
-            foreach (User user in users)
+            Console.WriteLine("ServerConnection: Broadcast(" + info + ", " + type + ") Users length: " + users.Count);
+            switch(type)
             {
-                user.handleClient.SendMessageToClient(msg);
+                case 0:
+                    if (channelName == "")
+                    {
+                        foreach (User user in users)
+                        {
+                            user.handleClient.SendMessageToClient(info, username);
+                        }
+                    }
+                    else
+                    {
+                        foreach (User user in users)
+                        {
+                            if (user.channelName == channelName)
+                            {
+                                user.handleClient.SendMessageToClient(info, username);
+                            }
+                        }
+                    }
+                    break;
+                case 1:
+                    string names = "";
+                    foreach(User user in users)
+                    {
+                        names += user.userName + " (" + user.channelName + ")|";
+                    }
+                    Console.WriteLine("Names length: " + names.Length);
+                    foreach (User user in users)
+                    {
+                        user.handleClient.SendUserListToClient(names);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("ServerConnection: Unhandled type: " + type);
+                    break;
             }
-
         }
 
 
@@ -67,22 +101,40 @@ namespace DNP_CourseAssignment
                 {
                     listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
                 });
-
+                
                 Console.WriteLine(users.Count);
-                Console.WriteLine("Connected to client: " + ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                string userName = ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString();
+                Console.WriteLine("Connected to client: " + userName);
 
-                string welcome = "Welcome to the DNPI1 test server";
-                byte[] data = Encoding.ASCII.GetBytes(welcome);
-                ns.Write(data, 0, data.Length);
-
-                HandleClientConnection hc = new HandleClientConnection(ns,listLog, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),this);
-                users.Add(new User(client,hc, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()));
+                HandleClientConnection hc = new HandleClientConnection(ns,listLog, userName,this);
+              //  users.Add(new User(client,hc, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()));
+                
                 Thread handleConnection = new Thread(new ThreadStart(hc.ReceiveMessagesFromClient));
                 handleConnection.Start();
 
+
+            }
+        }
+
+        public void AddUser(User user)
+        {
+            users.Add(user);
+        }
+
+        public void SetUserChannel(string username, string channelName)
+        {
+            foreach (User user in users)
+            {
+                if (user.userName == username)
+                {
+                    Console.WriteLine("User " + username + " joined channel " + channelName);
+                    user.channelName = channelName;
+                    user.handleClient.SendChannelJoinConfirmation(channelName);
+                    return;
+                }
             }
         }
     }
-
+    
 
 }

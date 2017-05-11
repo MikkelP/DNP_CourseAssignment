@@ -5,22 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 namespace DNP_CourseAssignment
-{//
-    class User
+{
+    public class User
     {
-        public TcpClient client { get; }
+     //   public TcpClient client { get; }
         public HandleClientConnection handleClient { get; }
         public string userName { get; }
+        public string channelName;
 
-        public User(TcpClient c,HandleClientConnection hc,string userN)
+        public User(HandleClientConnection hc, string userN)
         {
-            client = c;
+        //    client = c;
             handleClient = hc;
-            userName = userN;           
+            userName = userN;
         }
-
-
-
 
 
     }

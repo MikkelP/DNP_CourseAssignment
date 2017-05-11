@@ -9,16 +9,31 @@ using System.Windows.Forms;
 
 namespace ClientProject
 {
-    class ClientConnection
+    public class ClientConnection
     {
-        private ListBox chatBox;
         public HandleServerConnection hc;
+        private LoginRegistration lr;
 
-        public ClientConnection (ListBox _chatBox)
+        public ClientConnection (LoginRegistration lr)
         {
-            chatBox = _chatBox;
             Thread t = new Thread(new ThreadStart(TryConnect));
+            this.lr = lr;
             t.Start(); 
+        }
+
+        public void SetListBoxes(ListBox chatBox, ListBox userList)
+        {
+            hc.SetListBoxes(chatBox, userList);
+        }
+
+        internal void Register(string username, string password)
+        {
+            hc.SendRegisterRequest(username, password);
+        }
+
+        public void Login(string username, string password)
+        {
+            hc.SendLoginRequest(username, password);
         }
 
         public void TryConnect()
@@ -29,8 +44,8 @@ namespace ClientProject
             {
                 try
                 {
-                    c = new TcpClient("10.52.224.122", 11000);
-                } catch (SocketException e)
+                    c = new TcpClient("localhost", 11000);
+                } catch (SocketException)
                 {
                     Console.WriteLine("Failed to connect, reconnecting in 10 seconds...");
                     Thread.Sleep(10000);
@@ -38,7 +53,7 @@ namespace ClientProject
             }
 //....
             NetworkStream serverStream = c.GetStream();
-            hc = new HandleServerConnection(serverStream, chatBox);
+            hc = new HandleServerConnection(serverStream, lr);
 
             //Receiving messages
             Thread connection = new Thread(new ThreadStart(hc.ReceiveMessages));

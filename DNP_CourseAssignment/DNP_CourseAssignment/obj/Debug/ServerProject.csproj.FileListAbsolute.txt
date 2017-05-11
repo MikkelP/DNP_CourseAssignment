@@ -20,3 +20,15 @@ C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_Co
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.exe.config
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.exe
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.pdb
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.exe
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\DNP_CourseAssignment.pdb
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\ServerProject.csprojResolveAssemblyReference.cache
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.Server.resources
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\DNP_CourseAssignment.Properties.Resources.resources
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\obj\Debug\ServerProject.csproj.GenerateResource.Cache
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\ChatSystemDatabase.mdf
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\ChatSystemDatabase_log.ldf
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\EntityFramework.dll
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\EntityFramework.xml
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\bin\Debug\EntityFramework.SqlServer.xml

@@ -33,3 +33,8 @@ C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\Clie
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Client.resources
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.Properties.Resources.resources
 C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.csproj.GenerateResource.Cache
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\DNP_CourseAssignment.exe
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\DNP_CourseAssignment.pdb
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.LoginRegistration.resources
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase.mdf
+C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase_log.ldf

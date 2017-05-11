@@ -12,26 +12,28 @@ namespace ClientProject
 {
     public partial class Client : Form
     {
-        ClientConnection client;
-        public Client()
+        public ClientConnection c;
+        public Client(ClientConnection c)
         {
             InitializeComponent();
+            this.c = c;
+            if (chatBox == null) Console.WriteLine("chatBox null");
+            this.c.SetListBoxes(chatBox, userList);
         }
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            if (client == null) return;
+            if (c == null) return;
             //Get text
             String input = chatText.Text;
-            client.hc.SendMessage(chatText.Text);
+            c.hc.SendMessage(chatText.Text);
             chatText.Text = "";
-            chatBox.Items.Add(input);
+          //  chatBox.Items.Add(input);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (client != null) return;
-           client = new ClientConnection(chatBox);
+            
         }
 
         public ListBox GetMsgList()
@@ -41,7 +43,19 @@ namespace ClientProject
 
         public ListBox GetUserList()
         {
-            return listBox2; 
+            return userList; 
+        }
+
+        private void joinChannelButton_Click(object sender, EventArgs e)
+        {
+            string channelName = channelText.Text;
+
+            c.hc.JoinChannel(channelName);
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
