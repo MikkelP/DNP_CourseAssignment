@@ -11,7 +11,7 @@ using DNP_CourseAssignment;
 using System.Threading;
 
 namespace ClientProject
-{
+{//Client side thread that connects server
     public class HandleServerConnection
     {
         private ListBox chatBox, userList;
@@ -93,24 +93,21 @@ namespace ClientProject
                         Packet msg = (Packet) formatter.Deserialize(connectionStream);
                         int type = msg.type;
 
-
-                        //      connectionStream.Read(buffer, 0, buffer.Length);
-                        //    messageFromClient = Encoding.ASCII.GetString(buffer);
                         Console.WriteLine("HandleServerConnection receive messages type " + type);
                         switch(type)
                         {
-                            case 0:
-                                Console.WriteLine("client case 0");
+                            case 0://message
+              
                                 chatBox.BeginInvoke((MethodInvoker)delegate ()
                                 {
                                     string username = (string) msg.GetObjects(0);
                                     string content = (string) msg.GetObjects(1);
                                     chatBox.Items.Add("[" + msg.GetTimestamp() + "] " + username + ": " + content);
-                                    Console.WriteLine("client case 0, addingn item");
+                        
                                 });
                                 break;
 
-                            case 1:
+                            case 1://user list
                                 userList.BeginInvoke((MethodInvoker)delegate ()
                                 {
                                     string u = (string) msg.GetObjects(0);

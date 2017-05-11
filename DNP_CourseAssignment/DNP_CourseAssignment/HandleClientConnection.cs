@@ -9,10 +9,10 @@ using System.Data.Odbc;
 using System.Data.SqlClient;
 
 namespace DNP_CourseAssignment
-{
+{//Server side thread handling one client
     public class HandleClientConnection
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\ChatSystemDatabase.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\ChatSystemDatabase.mdf;Integrated Security=True";
         private string messageFromClient;
         private NetworkStream clientStream;
         private ListBox logList;
@@ -60,7 +60,6 @@ namespace DNP_CourseAssignment
         {
             Thread.Sleep(2000);
             byte[] buffer = new byte[128];
-          //  srvCon.Broadcast("", 1);
             while (true)
             {
                 buffer = new byte[128];
@@ -68,9 +67,6 @@ namespace DNP_CourseAssignment
                 {
                     if (clientStream.DataAvailable)
                     {
-
-                        //clientStream.Read(buffer, 0, 128);
-                        //messageFromClient = Encoding.ASCII.GetString(buffer);
                         SoapFormatter formatter = new SoapFormatter();
                         Packet msg = (Packet)formatter.Deserialize(clientStream);
                         int type = msg.type;          
@@ -102,7 +98,7 @@ namespace DNP_CourseAssignment
                                 string password2 = (string)msg.GetObjects(1);
                                 Register(username2, password2);
                                 break;
-                            case 4:
+                            case 4://Server received channel join request
                                 string channelName = (string)msg.GetObjects(0);
                                 srvCon.SetUserChannel(userId, channelName);
                                 this.channelName = channelName;

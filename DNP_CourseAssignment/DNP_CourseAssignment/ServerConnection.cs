@@ -13,7 +13,7 @@ using System.Web.Http.SelfHost;
 using System.Web.Http;
 
 namespace DNP_CourseAssignment
-{
+{//Access web service via //http://localhost:8080/api/user/usercount
     public class ServerConnection
     {
         private bool isStarted = false;
@@ -21,7 +21,7 @@ namespace DNP_CourseAssignment
         private List<User> users;
         private ListBox listBox;
         private ListBox listLog;
-        private static ServerConnection instance;
+        private static ServerConnection instance;//Singleton
         public static ServerConnection Instance { get { return instance; } } 
 
          ServerConnection (ListBox box , ListBox log)
@@ -31,7 +31,7 @@ namespace DNP_CourseAssignment
             listLog = log;
             users = new List<User>();
             listener = new TcpListener(IPAddress.Any, 11000);
-
+            //Allow server to host web service
             HttpSelfHostConfiguration config = new HttpSelfHostConfiguration("http://localhost:8080");
             config.MapHttpAttributeRoutes();
             HttpSelfHostServer server = new HttpSelfHostServer(config);
@@ -74,8 +74,8 @@ namespace DNP_CourseAssignment
             Console.WriteLine("ServerConnection: Broadcast(" + info + ", " + type + ") Users length: " + users.Count);
             switch(type)
             {
-                case 0:
-                    if (channelName == "")
+                case 0://Broadcast message
+                    if (channelName == "")//To all users if no channel is specified
                     {
                         foreach (User user in users)
                         {
@@ -93,7 +93,7 @@ namespace DNP_CourseAssignment
                         }
                     }
                     break;
-                case 1:
+                case 1://Broadcast user list
                     string names = "";
                     foreach(User user in users)
                     {
@@ -119,7 +119,7 @@ namespace DNP_CourseAssignment
             {
                 TcpClient client = listener.AcceptTcpClient();
                 NetworkStream ns = client.GetStream();
-                
+                //Add user ip to server GUI user list
                 this.listBox.BeginInvoke((MethodInvoker)delegate() 
                 {
                     listBox.Items.Add(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
@@ -130,8 +130,7 @@ namespace DNP_CourseAssignment
                 Console.WriteLine("Connected to client: " + userName);
 
                 HandleClientConnection hc = new HandleClientConnection(ns,listLog, userName,this);
-              //  users.Add(new User(client,hc, ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()));
-                
+
                 Thread handleConnection = new Thread(new ThreadStart(hc.ReceiveMessagesFromClient));
                 handleConnection.Start();
 
