@@ -17,7 +17,7 @@ namespace DNP_CourseAssignment
         public Server()
         {
             InitializeComponent();
-            connection = new ServerConnection(listBox2 , listBox1);
+            connection = ServerConnection.getInstance(listBox2 , listBox1);
         }
 
         private void startButton_Click(object sender, EventArgs e)

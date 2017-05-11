@@ -38,3 +38,16 @@ C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\Client
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.LoginRegistration.resources
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase.mdf
 C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase_log.ldf
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\obj\Debug\ClientProject.LoginRegistration.resources
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase.mdf
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\ChatSystemDatabase_log.ldf
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\DNP_CourseAssignment.exe
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Web.Http.SelfHost.dll
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Web.Http.dll
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\DNP_CourseAssignment.pdb
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Web.Http.SelfHost.xml
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Web.Http.xml
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\ClientProject\bin\Debug\Newtonsoft.Json.xml

@@ -9,6 +9,8 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Soap;
+using System.Web.Http.SelfHost;
+using System.Web.Http;
 
 namespace DNP_CourseAssignment
 {
@@ -19,15 +21,36 @@ namespace DNP_CourseAssignment
         private List<User> users;
         private ListBox listBox;
         private ListBox listLog;
+        private static ServerConnection instance;
+        public static ServerConnection Instance { get { return instance; } } 
 
-        public ServerConnection (ListBox box , ListBox log)
+         ServerConnection (ListBox box , ListBox log)
         {
-            //[] address = { 127, 0, 0, 1 };
-            //IPAddress ip = new IPAddress(address);
+   
             listBox = box;
             listLog = log;
             users = new List<User>();
-            listener = new TcpListener(IPAddress.Any, 11000);   
+            listener = new TcpListener(IPAddress.Any, 11000);
+
+            HttpSelfHostConfiguration config = new HttpSelfHostConfiguration("http://localhost:8080");
+            config.MapHttpAttributeRoutes();
+            HttpSelfHostServer server = new HttpSelfHostServer(config);
+            server.OpenAsync().Wait();
+
+        }
+
+        public int GetUserCount()
+        {
+            return users.Count();
+        }
+
+        public static ServerConnection getInstance(ListBox b, ListBox log)
+        {
+            if (instance == null)
+            {
+                instance = new ServerConnection(b, log);
+            } 
+            return instance;
         }
 
         public void Start ()

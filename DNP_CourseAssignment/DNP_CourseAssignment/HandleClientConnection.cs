@@ -12,7 +12,7 @@ namespace DNP_CourseAssignment
 {
     public class HandleClientConnection
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mikke\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\ChatSystemDatabase.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Andreas\Documents\GitHub\DNP_CourseAssignment\DNP_CourseAssignment\DNP_CourseAssignment\ChatSystemDatabase.mdf;Integrated Security=True";
         private string messageFromClient;
         private NetworkStream clientStream;
         private ListBox logList;
